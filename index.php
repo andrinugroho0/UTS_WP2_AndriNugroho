@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perpustakaan</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Library System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Perpustakaan</h1>
-        <form action="search_book.php" method="GET">
-            <label for="search">Cari Buku:</label>
-            <input type="text" id="search" name="query">
-            <button type="submit">Cari</button>
-        </form>
-    </div>
+    <h1>Welcome to Library System</h1>
+    <ul>
+        <li><a href="add_book.php">Add New Book</a></li>
+        <li><a href="borrow_book.php">Borrow Book</a></li>
+        <li><a href="return_book.php">Return Book</a></li>
+        <li><a href="available_books.php">Available Books</a></li>
+    </ul>
 </body>
 </html>

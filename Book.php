@@ -1,13 +1,13 @@
 <?php
 class Book {
-    protected $title;
-    protected $author;
-    protected $year;
+    public $title;
+    public $author;
+    public $availability;
 
-    public function __construct($title, $author, $year) {
+    public function __construct($title, $author) {
         $this->title = $title;
         $this->author = $author;
-        $this->year = $year;
+        $this->availability = true;
     }
 
     public function getTitle() {
@@ -18,8 +18,16 @@ class Book {
         return $this->author;
     }
 
-    public function getYear() {
-        return $this->year;
+    public function isAvailable() {
+        return $this->availability;
+    }
+
+    public function borrowBook() {
+        $this->availability = false;
+    }
+
+    public function returnBook() {
+        $this->availability = true;
     }
 }
 ?>
