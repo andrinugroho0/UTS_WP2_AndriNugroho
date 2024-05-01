@@ -2,32 +2,18 @@
 class Book {
     public $title;
     public $author;
-    public $availability;
+    public $year;
+    public $isbn; // Menyimpan ISBN buku
+    public $publisher; // Menyimpan nama penerbit buku
+    public $status; // Menyimpan status buku (misalnya: tersedia, dipinjam, dll.)
 
-    public function __construct($title, $author) {
+    public function __construct($title, $author, $year, $isbn, $publisher, $status = "Tersedia") {
         $this->title = $title;
         $this->author = $author;
-        $this->availability = true;
-    }
-
-    public function getTitle() {
-        return $this->title;
-    }
-
-    public function getAuthor() {
-        return $this->author;
-    }
-
-    public function isAvailable() {
-        return $this->availability;
-    }
-
-    public function borrowBook() {
-        $this->availability = false;
-    }
-
-    public function returnBook() {
-        $this->availability = true;
+        $this->year = $year;
+        $this->isbn = $isbn;
+        $this->publisher = $publisher;
+        $this->status = $status;
     }
 }
 ?>
