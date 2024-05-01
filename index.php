@@ -42,6 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['return_book'])) {
     $index = $_POST['borrowed_book_index'];
     $library->returnBook($index);
 }
+
+// Proses pencarian buku
+$searchResults = [];
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
+    $keyword = $_GET['search'];
+    $searchResults = $library->searchBooks($keyword);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['return_book'])) {
 </head>
 <body>
     <h1>Perpustakaan</h1>
+
     <h2>Tambah Buku</h2>
     <form method="post" action="index.php">
         <label for="title">Judul:</label><br>
@@ -107,5 +115,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['return_book'])) {
             </li>
         <?php endforeach; ?>
     </ul>
+
+    <h2>Pencarian Buku</h2>
+    <form method="get" action="index.php">
+        <label for="search">Cari Buku:</label><br>
+        <input type="text" id="search" name="search" required><br>
+        <button type="submit">Cari</button>
+    </form>
+
+    <h2>Pengurutan Buku</h2>
+    <form method="post" action="index.php">
+        <label for="sort_by">Urutkan berdasarkan tahun terbit:</label>
+        <select id="sort_by" name="sort_by">
+            <option value="asc">Tahun Terbit (Terbaru ke Terlama)</option>
+            <option value="desc">Tahun Terbit (Terlama ke Terbaru)</option>
+        </select>
+        <button type="submit" name="sort_books">Urutkan</button>
+    </form>
 </body>
 </html>

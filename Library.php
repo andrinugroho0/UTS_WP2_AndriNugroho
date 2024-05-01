@@ -5,6 +5,18 @@ class Library {
     private $books = [];
     private $borrowedBooks = [];
 
+    
+
+    public function searchBooks($keyword) {
+        $results = [];
+        foreach ($this->books as $book) {
+            if (stripos($book->title, $keyword) !== false || stripos($book->author, $keyword) !== false) {
+                $results[] = $book;
+            }
+        }
+        return $results;
+    }
+
     public function addBook($title, $author, $year, $isbn, $publisher, $status = "Tersedia") {
         $book = new Book($title, $author, $year, $isbn, $publisher, $status);
         $this->books[] = $book;
