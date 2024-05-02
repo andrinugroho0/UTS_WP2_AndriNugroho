@@ -5,8 +5,6 @@ class Library {
     private $books = [];
     private $borrowedBooks = [];
 
-    
-
     public function searchBooks($keyword) {
         $results = [];
         foreach ($this->books as $book) {
@@ -66,6 +64,19 @@ class Library {
         if (isset($this->books[$index])) {
             unset($this->books[$index]);
             $this->books = array_values($this->books); // Reindex array
+        }
+    }
+
+    public function sortBooksByYear($sortBy) {
+        // Urutkan buku berdasarkan tahun terbit
+        if ($sortBy === 'asc') {
+            usort($this->books, function ($a, $b) {
+                return $a->year - $b->year;
+            });
+        } elseif ($sortBy === 'desc') {
+            usort($this->books, function ($a, $b) {
+                return $b->year - $a->year;
+            });
         }
     }
 }
