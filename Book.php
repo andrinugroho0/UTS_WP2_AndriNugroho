@@ -1,8 +1,8 @@
 <?php
 class Book {
-    public $title;
-    public $author;
-    public $year;
+    public $title; // menyimpan judul buku
+    public $author; //menyimpan nama penulis buku
+    public $year; // Menyimpan tahun buku
     public $isbn; // Menyimpan ISBN buku
     public $publisher; // Menyimpan nama penerbit buku
     public $status; // Menyimpan status buku (misalnya: tersedia, dipinjam, dll.)
